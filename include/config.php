@@ -1,8 +1,8 @@
 <?php
 
-$token = ""; // TOKEN of BOT
+$token = "1958377342:AAEFm3uVHvabDKSHEz3w_M3MomabsmAaKxo"; // TOKEN of BOT
 define('API_KEY',"$token"); // Username of BOT
-$admin = "518962398"; // Admin Telegram ID
+$admin = "989174330"; // Admin Telegram ID
 
 
 class Telegram {
