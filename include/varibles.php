@@ -1,6 +1,6 @@
 <?php
 
-include 'class/Telegram.class.php';
+include 'Telegram.class.php';
 
 $input = file_get_contents('php://input');
 $update = json_decode($input);
