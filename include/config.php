@@ -28,11 +28,11 @@ class Telegram {
 
 
 // Include Files
-require "include/functions.php"; // Telegram API Method
-require "include/config.php"; // Bot and Administrator datas
-require "include/keyboards.php"; // Keyboards
-require "include/connect.php"; // DataBase Connect
-require "include/varibles.php"; // Variables [php://input]
+require "functions.php"; // Telegram API Method
+require "bot.php.php"; // Bot and Administrator datas
+require "keyboards.php"; // Keyboards
+require "connect.php"; // DataBase Connect
+require "varibles.php"; // Variables [php://input]
 
 // Ini Set [Turn off Display errors and reports]
 ini_set('error_reporting', 'off');
