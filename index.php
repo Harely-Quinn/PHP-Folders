@@ -19,7 +19,7 @@ if(file_exists($lang_path)){
 
 include 'lang/'.$lang.'.php';
 
-if($text == '/start' and $chat_id == $admin){{
+if($text == '/start' and $chat_id == $admin){
         $lang_btn = json_encode(['inline_keyboard' => [
             [['text' => 'English🇬🇧' , 'callback_data' => 'lang-en']],
             [['text' => 'Persian🇮🇷' , 'callback_data' => 'lang-fa']]
