@@ -15,7 +15,7 @@ $message_id = $message->message_id;
 $text = $message->text;
 $data = $update->callback_query->data;
 $time = strtotime("+5 minutes");
-$us = bot('getChatMembersCount',[
+$us = $telegram('getChatMembersCount',[
 'chat_id'=>$chat_id,
 ]);
 $count = $us->result;
@@ -25,7 +25,7 @@ $new_time = date("Y-m-d H:i:s", strtotime('+0 hours'));
 $channel= "@College_Of_Technical_Engineering";
 $random_msg_top = array("Hello 👋","Thanks for using me 💛");
 $Random = $random_msg_top[array_rand($random_msg_top,1)];
-$getstatus = bot('getChatMember', [
+$getstatus = $telegram('getChatMember', [
 'chat_id' => $chat_id,
 'user_id' => $user_id,
 ]);
