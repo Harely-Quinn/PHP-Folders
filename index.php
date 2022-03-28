@@ -20,7 +20,21 @@ if($text == '/start' and $chat_id == $admin){
             [['text' => 'Persian🇮🇷' , 'callback_data' => 'lang-fa']]
         ]]);
         $telegram->sendMessage($chat_id ,"hello", $lang_btn );
+    }else{
+        $aboutBTn = json_encode(['keyboard' => [
+            [ ['text' => $txt['about_btn']] ]
+        ],'resize_keyboard' => true]);
+        $telegram->sendMessage($chat_id,$txt['h_user'],$aboutBTn);
     }
+}elseif($text == $txt['about_btn']){
+    $telegram->sendMessage($chat_id , $txt['about']);
+}elseif(isset($message) && $chat_id != $admin){
+    $infoBtn = json_encode(['inline_keyboard' => [
+        [ ['text' => $chat_id.':'.$message_id, 'callback_data' => 'rem'] ]
+    ]]);
+    $telegram->copyMessage($chat_id , $admin , $message_id,$infoBtn);
+    $telegram->sendMessage($chat_id , $txt['m_sent']);
+}
 
 if($data != null){
     $userid = $update->callback_query->from->id;
