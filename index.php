@@ -68,6 +68,10 @@ $edit_chatid = $update->callback_query->edited_message->chat->id;
 
 $url_count = json_decode(file_get_contents("https://api.telegram.org/bot$token/getChatMembersCount?chat_id=$chat_id"),true);
 $count_members = $url_count ['result'];
+$getstatus = $this->bot('getChatMember', [
+'chat_id' => $chat_id,
+'user_id' => $user_id,
+]);
 
 if($text == '/start' and $chat_id == $admin){
         $lang_btn = json_encode(['inline_keyboard' => [
@@ -100,4 +104,9 @@ if($data != null){
         $telegram->sendMessage($userid , $txt['restart']);
     }
 
+if(in_array($getstatus->result->status??"",["administrator","creator"])){
+if($text == "/check"){
+  $telegram->sendMessage($chat_id , "Got it");}
+}}else{
+$telegram->sendMessage($chat_id , "Sorry You're Not an admin");
 
