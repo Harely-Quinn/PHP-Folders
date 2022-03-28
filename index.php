@@ -11,11 +11,6 @@ $chat_id = $message->chat->id;
 $message_id = $message->message_id;
 $text = $message->text;
 $data = $update->callback_query->data;
-$lang_path = 'data/'. $chat_id . '.txt';
-$lang = 'en';
-if(file_exists($lang_path)){
-    $lang = file_get_contents($lang_path);
-}
 
 if($text == '/start'){
     if(!file_exists($lang_path)){
