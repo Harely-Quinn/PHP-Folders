@@ -17,7 +17,6 @@ if(file_exists($lang_path)){
     $lang = file_get_contents($lang_path);
 }
 
-include 'lang/'.$lang.'.php';
 
 if($text == '/start'){
     if(!file_exists($lang_path)){
@@ -28,9 +27,7 @@ if($text == '/start'){
         ]]);
         $telegram->sendMessage($chat_id ,$txt['s_lang'], $lang_btn );
     }
-    if($chat_id == $admin){
-        $telegram->sendMessage($chat_id , $txt['h_admin']);
-    }else{
+   else{
         $aboutBTn = json_encode(['keyboard' => [
             [ ['text' => $txt['about_btn']] ]
         ],'resize_keyboard' => true]);
