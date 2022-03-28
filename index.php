@@ -39,29 +39,6 @@ if($text == '/start'){
     $telegram->sendMessage($chat_id , $txt['m_sent']);
 }
 
-if($data != null){
-    $userid = $update->callback_query->from->id;
-    $mid = $update->callback_query->message->message_id;
-
-        $cb_id = $update->callback_query->id;
-        $telegram->sendMessage($userid , $txt['restart']);
-    }else{
-    if($data == 'rem' && $userid == $admin){
-        $telegram->edit_replay($userid , $mid,null); 
-    }}
-}
-
-if($chat_id == $admin){
-    if(isset($message->reply_to_message->reply_markup)){
-        $btn = $message->reply_to_message->reply_markup;
-        $text = $btn->inline_keyboard[0][0]->text;
-        $ex = explode(':',$text);
-        $userid = $ex[0];
-        $msg_id = $ex[1];
-        $telegram->copyMessage($chat_id,$userid, $message_id,null,$msg_id);
-        $telegram->sendMessage($chat_id , $txt['m_sent']);
-    }
-}
 
 
 // Time [Asia/Tashkent]
