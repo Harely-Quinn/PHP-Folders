@@ -29,7 +29,7 @@ if($text == '/start' and $chat_id == $admin){
     $telegram->sendMessage($chat_id , "Got it");
 }elseif(isset($message) && $chat_id != $admin){
     $infoBtn = json_encode(['inline_keyboard' => [
-        [ ['text' => $chat_id.':'.$message_id, 'callback_data' => 'rem'] ]
+        [ ['text' => 'Hello', 'callback_data' => 'rem'] ]
     ]]);
     $telegram->copyMessage($chat_id , $admin , $message_id, $infoBtn);
     $telegram->sendMessage($chat_id , "Ok");
