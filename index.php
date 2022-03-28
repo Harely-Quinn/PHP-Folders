@@ -102,9 +102,7 @@ if($data != null){
         $telegram->sendMessage($userid , $txt['restart']);
     }
 
-
-$url_count = json_decode(file_get_contents("https://api.telegram.org/bot$token/getChatMember?chat_id=$chat_id&user_id=$user_id"),true);
-$status = $url_count ['result'];
+$status = getChatMember($getstatus);
 if($status =="administrator" or $status == "creator"){
 if($text == "/check"){
   $telegram->sendMessage($chat_id , "Got it");}
