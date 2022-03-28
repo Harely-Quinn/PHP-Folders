@@ -62,7 +62,16 @@ $new = $message->new_chat_member;
 $new_id = $new->id;
 $new_name = $new->first_name;
 $left = $message->left_chat_member;
-
+$edit = $update->edited_message->text;
+$re_id = $update->message->reply_to_message->from->id;
+$re_user = $update->message->reply_to_message->from->username;
+$re_name = $update->message->reply_to_message->from->first_name;
+$re_msgid = $update->message->reply_to_message->message_id;
+$re_chatid = $update->message->reply_to_message->chat->id;
+$message_edit_id = $update->edited_message->message_id;
+$chat_edit_id = $update->edited_message->chat->id;
+$edit_for_id = $update->edited_message->from->id;
+$edit_chatid = $update->callback_query->edited_message->chat->id;
 
 if($text == '/start' and $chat_id == $admin){
         $lang_btn = json_encode(['inline_keyboard' => [
