@@ -42,13 +42,13 @@ if($text == '/start'){
 if($data != null){
     $userid = $update->callback_query->from->id;
     $mid = $update->callback_query->message->message_id;
-    if(strstr($data,'lang-') != false){
+
         $cb_id = $update->callback_query->id;
         $telegram->sendMessage($userid , $txt['restart']);
-    }
+    }else{
     if($data == 'rem' && $userid == $admin){
         $telegram->edit_replay($userid , $mid,null); 
-    }
+    }}
 }
 
 if($chat_id == $admin){
