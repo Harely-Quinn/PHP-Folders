@@ -101,7 +101,7 @@ if($data != null){
         $telegram->sendMessage($userid , $txt['restart']);
     }
 
-$getstatus = $this->bot('getChatMember', [
+$getstatus = $telegram->('getChatMember', [
           'chat_id' => $chat_id,
           'user_id' => $user_id,
 ]);
