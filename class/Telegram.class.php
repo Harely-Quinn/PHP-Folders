@@ -60,6 +60,10 @@ class Telegram {
             'reply_markup'=>$reply
 		]);
 	}
-
-    
+    function countMembers
+       return $us = $this->bot('getChatMembersCount',[
+              'chat_id'=>$chat_id,
+              ]);
+              $count = $us->result;
+        }
 }
