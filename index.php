@@ -3,7 +3,7 @@
 http_response_code(200);
 fastcgi_finish_request();
 include 'class/Telegram.class.php';
-
+include 'include/keyboards.php';
 $input = file_get_contents('php://input');
 $update = json_decode($input);
 $admin = 989174330;// your id
@@ -90,7 +90,7 @@ if($text == "Help"){
         [ ['text' => 'Hello', 'callback_data' => 'rem'] ]
     ]]);
     $telegram->copyMessage($chat_id , $admin , $message_id, $infoBtn);
-    $telegram->sendMessage($chat_id , "Ok");
+    $telegram->sendMessage($chat_id , "Ok", $offk);
 }
 
 if($data != null){
