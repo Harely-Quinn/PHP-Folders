@@ -19,7 +19,7 @@ if(file_exists($lang_path)){
 
 include 'lang/'.$lang.'.php';
 
-if($text == '/start'){
+if($text == '/start' and $chat_id == $admin){
     if(!file_exists($lang_path)){
         file_put_contents($lang_path , $lang);
         $lang_btn = json_encode(['inline_keyboard' => [
@@ -27,9 +27,6 @@ if($text == '/start'){
             [['text' => 'Persian🇮🇷' , 'callback_data' => 'lang-fa']]
         ]]);
         $telegram->sendMessage($chat_id ,$txt['s_lang'], $lang_btn );
-    }
-    if($chat_id == $admin){
-        $telegram->sendMessage($chat_id , $txt['h_admin']);
     }else{
         $aboutBTn = json_encode(['keyboard' => [
             [ ['text' => $txt['about_btn']] ]
