@@ -100,8 +100,14 @@ if($data != null){
         $telegram->answerCallbackQuery($cb_id , "Ok",true);
         $telegram->sendMessage($userid , $txt['restart']);
     }
-$ad = $telegram->getChatMember($getstatus);
-if(in_array($ad->result->status??"",["administrator","creator"])){
+
+$getstatus = $this->bot('getChatMember', [
+          'chat_id' => $chat_id,
+          'user_id' => $user_id,
+]);
+
+$get = $getstatus->result->status;
+if($get =="administrator" or $get == "creator"){
 if($text == "/check"){
   $telegram->sendMessage($chat_id , "Got it");}
 }else{
