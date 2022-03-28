@@ -25,7 +25,8 @@ if($text == '/start' and $chat_id == $admin){
             [ ['text' => "Help"] ]
         ],'resize_keyboard' => true]);
         $telegram->sendMessage($chat_id,"Aha",$aboutBTn);
-    }elseif($text == "Help"){
+    }
+if($text == "Help"){
     $telegram->sendMessage($chat_id , "Got it");
 }elseif(isset($message) && $chat_id != $admin){
     $infoBtn = json_encode(['inline_keyboard' => [
