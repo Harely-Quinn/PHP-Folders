@@ -49,19 +49,10 @@ if($text == '/start'){
 if($data != null){
     $userid = $update->callback_query->from->id;
     $mid = $update->callback_query->message->message_id;
-    if(strstr($data,'lang-') != false){
-        $lang = explode('-',$data)[1];
-        $lang_path = "data/$userid.txt";
-        file_put_contents($lang_path , $lang);
+       
         $cb_id = $update->callback_query->id;
         $telegram->answerCallbackQuery($cb_id , $txt['lang_changed'],true);
         $telegram->sendMessage($userid , $txt['restart']);
     }
-    if($data == 'rem' && $userid == $admin){
-        $telegram->edit_replay($userid , $mid,null); 
-    }
-}
-
-
 
 
