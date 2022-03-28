@@ -13,13 +13,12 @@ $text = $message->text;
 $data = $update->callback_query->data;
 
 if($text == '/start'){
-    if(!file_exists($lang_path)){
         $key = json_encode(['inline_keyboard' => [
             [['text' => 'English🇬🇧' , 'callback_data' => 'lang-en']],
             [['text' => 'Persian🇮🇷' , 'callback_data' => 'lang-fa']]
         ]]);
         $telegram->sendMessage($chat_id ,$txt['s_lang'], $key );
     }
-}
+
 
 
