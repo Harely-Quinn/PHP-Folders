@@ -26,15 +26,6 @@ if($text == '/start' and $chat_id == $admin){
         ],'resize_keyboard' => true]);
         $telegram->sendMessage($chat_id,"Aha",$aboutBTn);
     }
-}elseif($text == "Ok"){
-    $telegram->sendMessage($chat_id , "Got it");
-}elseif(isset($message) && $chat_id != $admin){
-    $infoBtn = json_encode(['inline_keyboard' => [
-        [ ['text' => $chat_id.':'.$message_id, 'callback_data' => 'rem'] ]
-    ]]);
-    $telegram->copyMessage($chat_id , $admin , $message_id,$infoBtn);
-    $telegram->sendMessage($chat_id , "send");
-}
 
 if($data != null){
     $userid = $update->callback_query->from->id;
