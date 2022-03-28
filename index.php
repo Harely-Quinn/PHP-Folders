@@ -1,6 +1,6 @@
 <?php
 // Include Files
-require "include/functions.php";
+Incloud "include/functions.php";
 
 $input = file_get_contents('php://input');
 $update = json_decode($input);
