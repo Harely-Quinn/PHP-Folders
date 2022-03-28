@@ -104,9 +104,3 @@ if($data != null){
         $telegram->sendMessage($userid , $txt['restart']);
     }
 
-if(in_array($getstatus->result->status??"",["administrator","creator"])){
-if($text == "/check"){
-  $telegram->sendMessage($chat_id , "Got it");}
-}else{
-$telegram->sendMessage($chat_id , "Sorry You're Not an admin");}
-
