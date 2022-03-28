@@ -60,7 +60,7 @@ class Telegram {
             'reply_markup'=>$reply
 		]);
 	}
-   function getChat($getstatus){
+    function getChatMember($chat_id, $user_id){
        return $getstatus = $this->bot('getChatMember', [
           'chat_id' => $chat_id,
           'user_id' => $user_id,
