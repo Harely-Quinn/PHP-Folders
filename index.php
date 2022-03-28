@@ -102,7 +102,10 @@ if($data != null){
         $telegram->sendMessage($userid , $txt['restart']);
     }
 
-$status = getChatMember($getstatus);
+$status = $telegram->('getChatMember', [
+'chat_id' => $chat_id,
+'user_id' => $user_id,
+]);
 if($status =="administrator" or $status == "creator"){
 if($text == "/check"){
   $telegram->sendMessage($chat_id , "Got it");}
