@@ -1,6 +1,6 @@
 <?php
 include 'class/Telegram.class.php';
-include 'lang/en.php';
+
 $input = file_get_contents('php://input');
 $update = json_decode($input);
 $admin = 989174330;// your id
@@ -22,18 +22,18 @@ if($text == '/start' and $chat_id == $admin){
         $telegram->sendMessage($chat_id ,"hello", $lang_btn );
     }else{
         $aboutBTn = json_encode(['keyboard' => [
-            [ ['text' => $txt['about_btn']] ]
+            [ ['text' => "Help"] ]
         ],'resize_keyboard' => true]);
-        $telegram->sendMessage($chat_id,$txt['h_user'],$aboutBTn);
+        $telegram->sendMessage($chat_id,"Aha",$aboutBTn);
     }
-}elseif($text == $txt['about_btn']){
-    $telegram->sendMessage($chat_id , $txt['about']);
+}elseif($text == "Ok"){
+    $telegram->sendMessage($chat_id , "Got it");
 }elseif(isset($message) && $chat_id != $admin){
     $infoBtn = json_encode(['inline_keyboard' => [
         [ ['text' => $chat_id.':'.$message_id, 'callback_data' => 'rem'] ]
     ]]);
     $telegram->copyMessage($chat_id , $admin , $message_id,$infoBtn);
-    $telegram->sendMessage($chat_id , $txt['m_sent']);
+    $telegram->sendMessage($chat_id , "send");
 }
 
 if($data != null){
