@@ -66,12 +66,15 @@ $chat_edit_id = $update->edited_message->chat->id;
 $edit_for_id = $update->edited_message->from->id;
 $edit_chatid = $update->callback_query->edited_message->chat->id;
 
+$url_count = json_decode(file_get_contents("https://api.telegram.org/bot$api/getChatMembersCount?chat_id=$chat_id"),true);
+$count_members = $url_count ['result'];
+
 if($text == '/start' and $chat_id == $admin){
         $lang_btn = json_encode(['inline_keyboard' => [
             [['text' => 'English🇬🇧' , 'callback_data' => 'lang-en']],
             [['text' => 'Persian🇮🇷' , 'callback_data' => 'lang-fa']]
         ]]);
-        $telegram->sendMessage($chat_id ,"hello", $lang_btn );
+        $telegram->sendMessage($chat_id ,"Hello $count_members", $lang_btn );
     }else{
         $aboutBTn = json_encode(['keyboard' => [
             [ ['text' => "Help"] ]
